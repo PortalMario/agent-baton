@@ -35,6 +35,6 @@
 
 - Use only official Helm charts published by the upstream project or its clearly verified official organization.
 - If no official, secure, unambiguous upstream chart exists, stop and ask the user before selecting a third-party chart or writing a replacement.
-- Pin dependency chart versions exactly in `Chart.yaml` and commit the matching `Chart.lock` and packaged dependency.
+- Pin dependency chart versions exactly in `Chart.yaml` and commit the matching `Chart.lock`. Do not commit generated dependency archives under `charts/`; recreate them with `helm dependency build`.
 - Pin images configured through dependency values to exact released versions; never use `latest` or version ranges.
 - When the user requests a dependency chart update, research the upstream release notes for breaking changes and verify whether the existing chart configuration remains compatible; report any required configuration changes.
